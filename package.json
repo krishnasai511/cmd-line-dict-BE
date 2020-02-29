@@ -1,0 +1,23 @@
+{
+  "name": "cmd-line",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dict.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishnasai511/cmd-line-dict-BE.git"
+  },
+  "author": "sai krishna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krishnasai511/cmd-line-dict-BE/issues"
+  },
+  "homepage": "https://github.com/krishnasai511/cmd-line-dict-BE#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
