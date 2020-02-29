@@ -8,13 +8,14 @@ let self = module.exports = {
     //definitions
     defnOrexmple: async (type, word, exit) => {
         let wd_defns = await dict_hlpr.defnOrexmple(type, word);
-        if (!wd_defns.length) {
-            console.log('No data available');
+        if (wd_defns['error']) {
+            console.log(`No ${type} available`);
         }
         else {
+            if (type == 'examples') wd_defns = wd_defns.examples;
             console.log(`${type} are: ` + '\n');
             wd_defns.map((wd, i) => {
-                console.log(i + 1 + '. ' + wd.text + '\n')
+                console.log(i + 1 + '. ' + wd.text + '\n');
             })
             console.log(`\n`);
         }
@@ -31,16 +32,16 @@ let self = module.exports = {
             data.map(item => {
                 if (item.relationshipType == type) {
                     if (item.words.length) {
-                        console.log(`${type}s are:\n`)
+                        console.log(`${type}s are:\n`);
                         item.words.map(wd => console.log(wd));
                         console.log(`\n`);
                     } else {
-                        console.log(`No {type} are available`)
+                        console.log(`No {type} are available`);
                     }
                 }
             })
         } else {
-            console.log("No data available!")
+            console.log(`No ${type} available`);
         }
         if (exit) {
             process.exit();
@@ -58,8 +59,8 @@ let self = module.exports = {
         console.log("Word is", word);
         // Display Word Definitions, Word Synonyms, Word Antonyms & Word Examples for a given word
         if (word) {
-            await Promise.all([self.defnOrexmple('definitions', word), self.synOrant('synonym', word), self.synOrant('antonym', word), self.defnOrexmple('examples', word)])
-            process.exit()
+            await Promise.all([self.defnOrexmple('definitions', word), self.synOrant('synonym', word), self.synOrant('antonym', word), self.defnOrexmple('examples', word)]);
+            process.exit();
         }
     }
 

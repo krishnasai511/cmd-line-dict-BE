@@ -13,11 +13,7 @@ module.exports = {
             request.get(`${apiHost}/word/${word}/${type}?api_key=${apiKey}`, (err, res) => {
                 if (err) console.log(`Error in getting the word ${type}`, reject(err));
                 else {
-                    if (type == 'definitions') {
-                        resolve(JSON.parse(res.body));
-                    } else {
-                        resolve(JSON.parse(res.body).examples);
-                    }
+                    resolve(JSON.parse(res.body));
                 }
             })
         })

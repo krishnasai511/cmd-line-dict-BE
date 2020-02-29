@@ -52,3 +52,7 @@ if (dict_args.length) {
     dictionary.fullDict();
 
 }
+
+
+// dictionary play tool
+
