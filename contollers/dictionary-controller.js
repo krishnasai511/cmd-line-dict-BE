@@ -85,7 +85,7 @@ let self = module.exports = {
             }
             // Display Word Definitions, Word Synonyms, Word Antonyms & Word Examples for a given word
             if (word) {
-                console.log(`**Full Dictionary Data of the ${word}**\n`);
+                console.log(`**Full Dictionary Data of the word "${word}" **\n`);
                 await Promise.all([self.defnOrexmple('definitions', word, false, true), self.synOrant('synonym', word, false, true), self.synOrant('antonym', word, false, true), self.defnOrexmple('examples', word, false, true)]);
                 process.exit();
             }
@@ -116,7 +116,7 @@ let self = module.exports = {
 
         if (result) {
             let guess_rand = Math.floor(Math.random() * (result.data.length));
-            console.log(`please guess the word for the given ${result.type}`);
+            console.log(`Guess the word for the given ${result.type}`);
             console.log(`\n ${result.data[guess_rand]}`);
             let solutions = [];
             if (result.type !== 'synonym') {
@@ -136,7 +136,7 @@ let self = module.exports = {
                 } else {
                     let opt = inp;
                     if (opt == '1' && flag) {
-                        console.log(`\nEnter word\n`);
+                        console.log(`\nEnter word:\n`);
                         flag = false;
                     }
                     else if (opt == '2' && flag) {
